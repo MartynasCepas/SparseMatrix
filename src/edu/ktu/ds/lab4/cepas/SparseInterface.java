@@ -26,31 +26,7 @@ public interface SparseInterface {
     /*
         Returns the determinant of the matrix calculated recursively (Use the formula provided in the project description).
      */
-    int determinant();
 
-    /*
-        Returns a new matrix which is the minor of the original (See project description for minor definition).
-     */
-    SparseInterface minor(int row, int col);
-
-    /*
-    Should return the nonzero elements of your sparse matrix as a string.
-    The String should be k lines, where k is the number of nonzero elements.
-    Each line should be in the format "row column data" where row and column are the "coordinate" of the data and all are separated by spaces.
-    An empty matrix should return an empty string.
-    The print should be from left to right and from top to bottom (like reading a book) i.e. the matrix
-
-                                                     3 0 1
-                                                     0 2 0
-                                                     0 0 4
-
-                                                 Should print as:
-                                                     0 0 3
-                                                     0 2 1
-                                                     1 1 2
-                                                     2 2 4
-
-     */
     public String toString();
 
     /*

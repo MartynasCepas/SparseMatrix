@@ -35,11 +35,20 @@ public class Matrix {
         }
     }
 
-    public double getElement(int row, int collumn) {
-        return _items[row][collumn];
+    public double getElement(int row, int column) {
+        for (int i = 0; i < this._size; i++) {
+            for (int j = 0; j < this._size; j++) {
+                if (row == i && column == j) {
+                    return this._items[i][j];
+                }
+            }
+        }
+        return 0;
     }
 
     public void removeElement(int r, int c) {
         _items[r][c] = 0;
     }
+
+
 }

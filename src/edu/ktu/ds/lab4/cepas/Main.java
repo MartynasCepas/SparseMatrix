@@ -26,11 +26,8 @@ public class Main {
 
         System.out.println("toString is correct: " + correctString.equalsIgnoreCase(a.toString()));
 
-        System.out.println("The determinant is 0: " + (a.determinant() == 0));
 
-        SparseInterface b = a.minor(1, 1);
 
-        System.out.println("The (1,1) element of the minor is 4: " + (b.getElement(1, 1) == 4));
 
         a.clear();
 
@@ -45,7 +42,6 @@ public class Main {
         a.addElement(2, 2, 2);
         System.out.println(a.toString());
 
-        System.out.println(a.determinant());
 
         a.clear();
 
@@ -78,7 +74,6 @@ public class Main {
         System.out.println(a.toString());
 
 
-        System.out.println(a.determinant());
 
     }
 }
