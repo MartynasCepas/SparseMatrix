@@ -4,23 +4,24 @@ import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SparseMatrix implements SparseInterface {
-    LinkedList<Node> mat = new LinkedList<>();  //Linked list to hold all of the non 0 entries of the matrix
+    LinkedList<Node> mat = new LinkedList<>();
 
-    int sizeOfMat;                              //Size of the matrix
-
+    int sizeOfMat;
+    // default constructor
     public SparseMatrix() {
         setSize(5);
     }
 
-    //Matrix constructor that sets the size of the size x size matrix
     public SparseMatrix(int size) {
         setSize(size);
     }
 
+    // returns size of the sparse matrix
     public int getSize() {
         return sizeOfMat;
     }
 
+    // changes size of the sparse matrix
     public void setSize(int size) {
         if (size >= 0) {
             clear();
@@ -30,12 +31,14 @@ public class SparseMatrix implements SparseInterface {
         }
     }
 
+    // clears sparse matrix
     public void clear() {
         while (!mat.isEmpty()) {
             mat.removeFirst();
         }
     }
 
+    // adds element to the specified position
     public void addElement(int row, int col, int data) {
         // checks if range is legit
         if (row >= sizeOfMat || col >= sizeOfMat || row < 0 || col < 0) {
@@ -44,15 +47,14 @@ public class SparseMatrix implements SparseInterface {
             } catch (IndexOutOfBoundsException e) {
                 System.err.println("Index not in range");
             }
-        } else if(data != 0){
+        } else if (data != 0) {
             Node hold = new Node(row, col, data);
             mat.add(hold);
         }
     }
 
-
+    // removes specified element from the sparse matrix
     public void removeElement(int row, int col) {
-
         if (row >= sizeOfMat || col >= sizeOfMat || row < 0 || col < 0) {
             try {
                 throw new IndexOutOfBoundsException();
@@ -60,19 +62,17 @@ public class SparseMatrix implements SparseInterface {
                 System.err.println("Index not in range");
             }
         } else {
-            //Traverses through the linked list and sees if there is an element in the list
             for (Node n : mat) {
                 if (n.getRow() == row && n.getCol() == col) {
                     mat.remove(n);
-                    //break to end the traversal because there is only 1 position that will be deleted
                     break;
                 }
             }
         }
     }
 
+    // returns data from the specified position
     public int getElement(int row, int col) {
-
         if (row >= sizeOfMat || col >= sizeOfMat || row < 0 || col < 0) {
             try {
                 throw new IndexOutOfBoundsException();
@@ -86,16 +86,12 @@ public class SparseMatrix implements SparseInterface {
                 }
             }
         }
-
         return 0;
     }
 
-
+    // prints matrix
     public String toString() {
-
         String matrixStr = "";
-
-        //Prints the string from left to right
 
         for (Node n : mat) {
             matrixStr += n.getRow() + " " + n.getCol() + " " + n.getValue() + "\n";
@@ -108,6 +104,7 @@ public class SparseMatrix implements SparseInterface {
         return mat;
     }
 
+    // populates sparse matrix with data
     public void randomInput(double a, double b) {
         for (int i = 0; i < this.sizeOfMat; i++) {
             for (int j = 0; j < this.sizeOfMat; j++) {
@@ -117,7 +114,8 @@ public class SparseMatrix implements SparseInterface {
         }
     }
 
-    public void printMatrix(){
+    // prints sparse matrix as a matrix
+    public void printMatrix() {
         String matrix = "";
         for (int i = 0; i < this.sizeOfMat; i++) {
             for (int j = 0; j < this.sizeOfMat; j++) {
@@ -131,7 +129,6 @@ public class SparseMatrix implements SparseInterface {
 }
 
 
-//This class will hold the information of all of the nodes in the matrix: row, col, value
 class Node {
 
     int row;

@@ -27,8 +27,6 @@ public class Main {
         System.out.println("toString is correct: " + correctString.equalsIgnoreCase(a.toString()));
 
 
-
-
         a.clear();
 
         a.addElement(0, 0, 2);
@@ -45,6 +43,7 @@ public class Main {
 
         a.clear();
 
+        System.out.println("Sparse Matrix");
         a.setSize(7);
         a.addElement(5, 4, 9);
         a.addElement(6, 1, 2);
@@ -72,8 +71,7 @@ public class Main {
 
 
         System.out.println(a.toString());
-
-
-
+        System.out.println("Sparse Matrix as Matrix");
+        a.printMatrix();
     }
 }

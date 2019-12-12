@@ -7,11 +7,6 @@ public class Matrix {
     private int _size;
     private double[][] _items;
 
-    /**
-     * constructor
-     *
-     * @param size matrix size=n A[nxn]
-     */
     Matrix(int size) {
         this._size = size;
         this._items = new double[size][size];  // matrix
@@ -45,10 +40,5 @@ public class Matrix {
         }
         return 0;
     }
-
-    public void removeElement(int r, int c) {
-        _items[r][c] = 0;
-    }
-
 
 }

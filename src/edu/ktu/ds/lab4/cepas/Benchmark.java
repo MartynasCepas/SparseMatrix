@@ -3,8 +3,6 @@ package edu.ktu.ds.lab4.cepas;
 public class Benchmark {
     public static void main(String[] args) {
         int numberOfElements = 200;
-        int memUsed = 0;
-
 
         Matrix matrix = new Matrix(numberOfElements);
         SparseMatrix sparseMatrix = new SparseMatrix(numberOfElements);
@@ -21,14 +19,13 @@ public class Benchmark {
         long t3 = System.nanoTime();
         long m4 = currentMemUse();
         System.out.println("Sparse Matrix finished add() in: " + (t3 - t2) * 1e-9);
-        // long sparseMatrixMemory = memDifference();
 
         getElementTest(numberOfElements, matrix, sparseMatrix);
-      //  removeTest(numberOfElements, sparseMatrix);
+        removeTest(numberOfElements, sparseMatrix);
         System.out.println("Memory used by Matrix: " + (m2 - m1));
         System.out.println("Memory used by Sparse Matrix " + (m4 - m3));
 
-      //  sparseMatrix.printMatrix();
+        //  sparseMatrix.printMatrix();
     }
 
     private static void removeTest(int numberOfElements, SparseMatrix sparseMatrix) {
